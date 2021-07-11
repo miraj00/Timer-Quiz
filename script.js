@@ -11,26 +11,48 @@ var questions = [
     answer: "parentheses",
   },
   {
-    question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    question: "What is the original name of JavaScript?",
+    choices: ["Lotus", "EScript", "Mocha", "JavaScript"],
+    answer: "Mocha",
   },
   {
     question:
-      "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+      "Which company developed JavaScript?",
+    choices: ["Netscape", "Microsoft", "Sun Microsystems", "Apple"],
+    answer: "Netscape",
   },
   {
-    question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    question: "Inside which HTML element do we put the JavaScript?",
+    choices: ["<js>", "<scripting>", "<script>", "<javascript>"],
+    answer: "<script>",
   },
   {
     question:
-      "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+      "Which of the following is not considered a JavaScript operator?",
+    choices: ["new", "typeof", "this", "delete"],
+    answer: "this",
+  },
+  {
+    question: "Using ________ statement is how you test for a specific condition.",
+    choices: ["Select", "For", "switch", "if"],
+    answer: "if",
+  },
+  {
+    question:
+      " _______________ is the tainted property of a window object.",
+    choices: ["Host", "Defaultstatus", "Protocol", "Pathname"],
+    answer: "Defaultstatus",
+  },
+  {
+    question: "Is it possible to nest function in Javascript?",
+    choices: ["Yes", "No"],
+    answer: "Yes",
+  },
+  {
+    question:
+      "What is mean by - this - keyword in javascript?",
+    choices: ["It refers current object", "It referes previous object", "It is variable which contains value", "None of the above"],
+    answer: "It refers current object",
   },
 ];
 
