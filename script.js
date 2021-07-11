@@ -93,7 +93,8 @@ function hidePage1()  {
   
 }
 //------Timer Set -------------------------------------------------
-
+var timeLeft;
+var timerEl;
 function startTimer() {
   var timeLeft = questions.length * 6;
   var timerEl = document.querySelector("#timer");
@@ -115,13 +116,15 @@ function startTimer() {
 }
 
 
+
 // ---- How to subtract 5 seconds for wrong answer and also stop timer after last question  ----
-function toscorePage(){
-  if (questions.length == questionIndex ) {
-      timeLeft == 
+//function toscorePage(){
+//  if (questions.length == questionIndex ) {
+//      timeLeft == 
     
-       }
-}
+//       }
+//}
+
 
 
  // if they clicked correct answer
@@ -166,6 +169,7 @@ function trueFalse(event) {
   else {
     questionResultEl.textContent = "Wrong Answer!!";
     console.log("Wrong Answer");
+    timeLeft -= 5;
        };
  questionIndex++;
  console.log(questionIndex);
