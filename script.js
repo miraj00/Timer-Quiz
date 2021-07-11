@@ -56,29 +56,77 @@ var questions = [
   },
 ];
 
-var questionEl = document.querySelector("#question");
-var optionListEl = document.querySelector("#option-list");
-var questionResultEl = document.querySelector("#question-result");
-var timerEl = document.querySelector("#timer");
-var questionIndex = 0;
-var correctCount = 0;
+//-------Page 1 style set -------------------------------------------
 var btnStart = document.querySelector("#btn-start");
-var timecount = questions.length * 6;
+btnStart.setAttribute("style", "margin: 0 100px 0 900px; background-color: blue; color: white; font-size: 40px;");
 
+var mainEl = document.querySelector("#main");
+mainEl.setAttribute("style", "text-align:center; padding-bottom: 20px;");
+
+var instructionEl = document.querySelector("#instruction");
+instructionEl.setAttribute("style", "margin: auto; text-align:center; padding-bottom: 40px;");
+
+//------Question, Answers and Question Result style set---------------
+var questionEl = document.querySelector("#question");
+questionEl.setAttribute("style", "margin: auto; text-align:center; font-size: 60px; font-weight: bold; padding: 100px 0 50px 0;");
+
+var optionListEl = document.querySelector("#option-list");
+optionListEl.setAttribute("style", "margin: 30px auto 30px auto; width: 50%; text-align:center; font-size: 50px; padding: 20px 0 20px 0;");
+
+var questionResultEl = document.querySelector("#question-result");
+questionResultEl.setAttribute("style", "text-align:center; color: red; font-size: 30px; padding: 5px 0 20px 0; margin: 30px;");
+
+//-----------------------------------------------------------------
 var startingPage = document.querySelector("#starting-page");
 
+var questionIndex = 0;
+var correctCount = 0;
+
+
+//-------------------------------------------------------------
 function hidePage1()  {
    renderQuestion();
+   mainEl.hidden = true;
+   instructionEl.hidden = true;
    btnStart.hidden = true;
    startTimer();
 }
+//------Timer Set -------------------------------------------------
+var timecount = questions.length * 6;
+function countDown() {
+  for (var timecount; timecount > 0; timecount--) {
+    console.log(timecount);
+  }
+}
+console.log(countDown());
+
+
+
+
+
+
 
 function startTimer () {
   console.log("timer-started");  
+
+  var timecount = questions.length * 6;
+
   
+  var timerEl = document.querySelector("#timer");
+  timerEl.setAttribute("style", "margin: 50px 150px 0 0; text-align: right; font-size: 40px; font-weight: bold;");
+
+  timerEl.textContent = "Time : " +timecount;
+   if (timecount > 0) {
+    timecount--;
+
+  console.log (timecount);
+  
+  
+  }
+
 }
 
-
+//--------------------------------------------------------------
 function renderQuestion() {
   questionEl.textContent = questions[questionIndex].question;
 
@@ -86,27 +134,32 @@ function renderQuestion() {
 
   var choices = questions[questionIndex].choices;
   var choicesLength = choices.length;
+  
 
   for (var i = 0; i < choicesLength; i++) {
     var questionListItem = document.createElement("li");
+    questionListItem.setAttribute("style", "border-style: solid; background: LightGray; text-align:center; font-size: 50px; padding: 5px 0 20px 0; margin: 30px;");
     questionListItem.textContent = choices[i];
+   
     optionListEl.append(questionListItem);
+    
       }
 
     
 }
 
-
+//-------------------------------------------------------------
 function trueFalse(event) {
  var selectedChoice = event.target.textContent;
  var answer = questions[questionIndex].answer;
  console.log(selectedChoice);
  console.log(answer);
   if (selectedChoice == questions[questionIndex].answer) {
-    
+     questionResultEl.textContent = "Correct Answer!!";
     console.log("Your answer is correct");
   }
   else {
+    questionResultEl.textContent = "Wrong Answer!!";
     console.log("Wrong Answer"), 2000;
      
   };
@@ -128,13 +181,10 @@ btnStart.addEventListener('click', hidePage1);
 
 
 /*
-GIVEN I am taking a code quiz
-
 WHEN I click the start button
 
 THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
+
 WHEN I answer a question incorrectly
 THEN time is subtracted from the clock
 WHEN all questions are answered or the timer reaches 0
