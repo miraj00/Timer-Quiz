@@ -90,41 +90,29 @@ function hidePage1()  {
    instructionEl.hidden = true;
    btnStart.hidden = true;
    startTimer();
+  
 }
 //------Timer Set -------------------------------------------------
+
+
 var timecount = questions.length * 6;
-function countDown() {
-  for (var timecount; timecount > 0; timecount--) {
-    console.log(timecount);
+
+
+var startTimer = function() {
+      var timerEl = document.querySelector("#timer");
+    timerEl.setAttribute("style", "margin: 50px 150px 0 0; text-align: right; font-size: 40px; font-weight: bold;");
+    timerEl.textContent = "Time : " +timecount;
+    for (var i = timecount; timecount > 0; timecount--) {
+    console.log(i);
+    return i;
   }
-}
-console.log(countDown());
+};
 
 
 
 
 
 
-
-function startTimer () {
-  console.log("timer-started");  
-
-  var timecount = questions.length * 6;
-
-  
-  var timerEl = document.querySelector("#timer");
-  timerEl.setAttribute("style", "margin: 50px 150px 0 0; text-align: right; font-size: 40px; font-weight: bold;");
-
-  timerEl.textContent = "Time : " +timecount;
-   if (timecount > 0) {
-    timecount--;
-
-  console.log (timecount);
-  
-  
-  }
-
-}
 
 //--------------------------------------------------------------
 function renderQuestion() {
