@@ -94,21 +94,41 @@ function hidePage1()  {
 }
 //------Timer Set -------------------------------------------------
 
-
-var timecount = questions.length * 6;
-
-
-var startTimer = function() {
-      var timerEl = document.querySelector("#timer");
-    timerEl.setAttribute("style", "margin: 50px 150px 0 0; text-align: right; font-size: 40px; font-weight: bold;");
-    timerEl.textContent = "Time : " +timecount;
-    for (var i = timecount; timecount > 0; timecount--) {
-    console.log(i);
-    return i;
-  }
-};
+function startTimer() {
+  var timeLeft = questions.length * 6;
+  var timerEl = document.querySelector("#timer");
+  timerEl.setAttribute("style", "margin: 50px 150px 0 0; text-align: right; font-size: 40px; font-weight: bold;");
 
 
+    var timeInterval = setInterval(function() {
+       if (timeLeft > 0) {
+        timerEl.textContent = 'Time : ' + timeLeft + ' second(s)';
+      timeLeft--;
+         
+    } else {
+       timerEl.textContent = '';
+       clearInterval(timeInterval);
+       timerEl.hidden = true;
+        
+      }
+  }, 1000);
+}
+
+
+// ---- How to subtract 5 seconds for wrong answer and also stop timer after last question  ----
+function toscorePage(){
+  if (questions.length == questionIndex ) {
+      timeLeft == 
+    
+       }
+}
+
+
+ // if they clicked correct answer
+
+ //if answer is correct, increment score and if not then subtract 5 seconds from timer
+
+ // upon completion of 10 questions, go to score page
 
 
 
@@ -130,10 +150,7 @@ function renderQuestion() {
     questionListItem.textContent = choices[i];
    
     optionListEl.append(questionListItem);
-    
       }
-
-    
 }
 
 //-------------------------------------------------------------
@@ -148,14 +165,8 @@ function trueFalse(event) {
   }
   else {
     questionResultEl.textContent = "Wrong Answer!!";
-    console.log("Wrong Answer"), 2000;
-     
-  };
- // if they clicked correct answer
-
- //if answer is correct, increment score and if not then subtract time from timer
-
- //go to next question
+    console.log("Wrong Answer");
+       };
  questionIndex++;
  console.log(questionIndex);
  renderQuestion();
@@ -165,6 +176,12 @@ function trueFalse(event) {
 optionListEl.addEventListener('click', trueFalse);
 
 btnStart.addEventListener('click', hidePage1);
+
+
+
+
+
+
 
 
 
