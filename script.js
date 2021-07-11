@@ -76,12 +76,12 @@ optionListEl.setAttribute("style", "margin: 30px auto 30px auto; width: 50%; tex
 var questionResultEl = document.querySelector("#question-result");
 questionResultEl.setAttribute("style", "text-align:center; color: red; font-size: 30px; padding: 5px 0 20px 0; margin: 30px;");
 
+var scorePageEl = document.querySelector("#score-page");
 //-----------------------------------------------------------------
 var startingPage = document.querySelector("#starting-page");
 
 var questionIndex = 0;
 var correctCount = 0;
-
 
 //-------------------------------------------------------------
 function hidePage1()  {
@@ -89,53 +89,33 @@ function hidePage1()  {
    mainEl.hidden = true;
    instructionEl.hidden = true;
    btnStart.hidden = true;
+   scorePageEl.hidden = true;
    startTimer();
-  
 }
 //------Timer Set -------------------------------------------------
 var timeLeft;
 var timerEl;
 function startTimer() {
-  var timeLeft = questions.length * 6;
-  var timerEl = document.querySelector("#timer");
+  timeLeft = questions.length * 6;
+  timerEl = document.querySelector("#timer");
   timerEl.setAttribute("style", "margin: 50px 150px 0 0; text-align: right; font-size: 40px; font-weight: bold;");
 
 
     var timeInterval = setInterval(function() {
-       if (timeLeft > 0) {
-        timerEl.textContent = 'Time : ' + timeLeft + ' second(s)';
-      timeLeft--;
-         
-    } else {
-       timerEl.textContent = '';
-       clearInterval(timeInterval);
-       timerEl.hidden = true;
-        
-      }
+       if (timeLeft >= 0) {
+         timerEl.textContent = 'Time : ' + timeLeft + ' second(s)';
+         timeLeft--;
+            }
+          else if ( timeLeft == 0) {
+            scorePage();
+          }  
+       else {
+         timerEl.textContent = '';
+         clearInterval(timeInterval);
+   //    timerEl.hidden = true;
+            }
   }, 1000);
 }
-
-
-
-// ---- How to subtract 5 seconds for wrong answer and also stop timer after last question  ----
-//function toscorePage(){
-//  if (questions.length == questionIndex ) {
-//      timeLeft == 
-    
-//       }
-//}
-
-
-
- // if they clicked correct answer
-
- //if answer is correct, increment score and if not then subtract 5 seconds from timer
-
- // upon completion of 10 questions, go to score page
-
-
-
-
 
 //--------------------------------------------------------------
 function renderQuestion() {
@@ -146,17 +126,14 @@ function renderQuestion() {
   var choices = questions[questionIndex].choices;
   var choicesLength = choices.length;
   
-
   for (var i = 0; i < choicesLength; i++) {
     var questionListItem = document.createElement("li");
     questionListItem.setAttribute("style", "border-style: solid; background: LightGray; text-align:center; font-size: 50px; padding: 5px 0 20px 0; margin: 30px;");
     questionListItem.textContent = choices[i];
-   
     optionListEl.append(questionListItem);
-      }
-}
-
-//-------------------------------------------------------------
+       }
+  }
+//--------true / false answer display-----------------------------------------------------
 function trueFalse(event) {
  var selectedChoice = event.target.textContent;
  var answer = questions[questionIndex].answer;
@@ -174,8 +151,77 @@ function trueFalse(event) {
  questionIndex++;
  console.log(questionIndex);
  renderQuestion();
-
 }
+//--------working Part------------------------------------------------------
+
+function scorePage() {
+      var h3El = document.createElementById("h3");
+      h3El.setAttribute('id', 'quiz-complete');
+      h3El.textContent = "All Done !!";
+      h3El.setAttribute("style", "text-align:center; padding-bottom: 20px;");
+      document.getElementById("score-page").appendChild(h3El);
+      
+
+      var h4El = document.createElementById("h4");
+      h4El.setAttribute('id', 'current-score');
+      h4El.textContent = "Your Score is : ";
+      h4El.setAttribute("style", "text-align:center; padding-bottom: 20px;");
+      document.getElementById("score-page").appendChild(h4El);
+     
+      var form = document.createElement("FORM");
+      form.setAttribute("id", "myForm");
+      document.section.appendChild(form);
+    
+      var formInput = document.createElement("INPUT");
+      formInput.setAttribute("type", "text");
+      formInput.setAttribute("value", "");
+      document.getElementById("myForm").appendChild(formInput);
+
+      var submitBtn = document.createElement("BUTTON");
+      var submitText = document.createTextNode("Submit");
+      submitBtn.appendChild(submitText);
+      document.section.appendChild(submitBtn);
+
+      showElem();
+}
+
+function showElem() {
+  document.getElementById("score-page").style.visibility = "visible";
+} 
+
+
+
+
+
+
+
+
+//  if (timeLeft == 0 || questionIndex == questions.length) {
+//    console.log(timeLeft);
+
+
+/*     
+<h3 id="quiz-complete"> All Done !!</h3>
+<h4 id="current-score"> Your Score is :</h4>
+ <form>Enter Initials : <input type="text" name="Initial"></form>
+ <button id="btn-submit">Submit</button>
+*/    
+
+// upon completion of 10 questions, go to score page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 optionListEl.addEventListener('click', trueFalse);
 
