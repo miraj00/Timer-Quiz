@@ -154,7 +154,7 @@ function trueFalse(event) {
    // optionListEl.addEventListener ('click', timeCaught);
     console.log("the score is:", timeCaught);
     
-    localStorage.setItem('Score', timeCaught);
+  localStorage.setItem('Score', timeCaught);
     
     questionEl.hidden = true;
     optionListEl.hidden = true;
@@ -166,6 +166,8 @@ function trueFalse(event) {
   } 
 
   if (timeLeft == '0') {
+    timeCaught = 0;
+    localStorage.setItem('Score', timeCaught);
     scorePage();
   }
 
