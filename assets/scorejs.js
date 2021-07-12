@@ -1,3 +1,6 @@
+var x = localStorage.getItem("Score");
+console.log(x); 
+
 
 var quizCompleteEl = document.querySelector("#quiz-complete");
 quizCompleteEl.setAttribute("style", "text-align:center; margin: 100px auto 0 auto; padding-bottom: 20px;");
@@ -11,11 +14,17 @@ btnSubmit.setAttribute("style", "margin: 50px auto 0 900px; background-color: bl
 
 
 
+btnSubmit.addEventListener("click", store);
 
-var x = localStorage.getItem("Score");
-console.log(x); 
-// document.getElementById("demo").innerHTML = x;
-
-
+function store() {
 var y = document.getElementById("initial").value;
 localStorage.setItem('initial', y);
+console.log(y);
+
+if (!y) {
+    alert("You need to put Initials to proceed further");
+    return false;
+}
+
+window.location.href='../assets/summary.html'
+}

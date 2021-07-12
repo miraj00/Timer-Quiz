@@ -58,7 +58,7 @@ var questions = [
 
 //-------Page 1 style set -------------------------------------------
 var btnStart = document.querySelector("#btn-start");
-btnStart.setAttribute("style", "margin: 0 100px 0 900px; background-color: blue; color: white; font-size: 40px;");
+btnStart.setAttribute("style", "background-color: blue; color: white; font-size: 40px;");
 
 var mainEl = document.querySelector("#main");
 mainEl.setAttribute("style", "text-align:center; padding-bottom: 20px;");
