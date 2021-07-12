@@ -146,23 +146,22 @@ function trueFalse(event) {
     timeLeft -= 5;
        };
  questionIndex++;
-//----------------------------------------------------------------
- // if no more question or timeLeft = 0, go to score Page function ----
+
+ // -------- if no more question or timeLeft = 0, go to score Page function ------------
   if (questionIndex == '10') {
     var timeCaught;
     timeCaught = timeLeft + 1;
-   // optionListEl.addEventListener ('click', timeCaught);
     console.log("the score is:", timeCaught);
     
-  localStorage.setItem('Score', timeCaught);
+    localStorage.setItem('Score', timeCaught);
     
     questionEl.hidden = true;
     optionListEl.hidden = true;
     questionResultEl.hidden = true;
  
- event.preventDefault();
+    event.preventDefault();
 
-  scorePage();
+    scorePage();
   } 
 
   if (timeLeft == '0') {
@@ -171,8 +170,8 @@ function trueFalse(event) {
     scorePage();
   }
 
- console.log(questionIndex);
- renderQuestion();
+    console.log(questionIndex);
+    renderQuestion();
 }
 
 //--------Directing to Score Page---------------------------
@@ -185,76 +184,3 @@ optionListEl.addEventListener('click', trueFalse);
 
 btnStart.addEventListener('click', hidePage1);
 
-
-
-
-/*
- // hide questions and then 
- questionEl.hidden = true;
- optionListEl.hidden = true;
- questionResultEl.hidden = true;
- 
- // show score page
-
-
-      showElem();
-      
-      var h3El = document.createElement("h3");
-      h3El.setAttribute('id', 'quiz-complete');
-      h3El.textContent = "All Done !!";
-      h3El.setAttribute("style", "text-align:center; padding-bottom: 20px;");
-      document.getElementById("score-page").appendChild(h3El);
-      
-
-      var h4El = document.createElement("h4");
-      h4El.setAttribute('id', 'current-score');
-      h4El.textContent = "Your Score is : ";
-      h4El.setAttribute("style", "text-align:center; padding-bottom: 20px;");
-      document.getElementById("score-page").appendChild(h4El);
-     
-      var form = document.createElement("FORM");
-      form.setAttribute("id", "myForm");
-      document.getElementById("score-page").appendChild(form);
-    
-      var formInput = document.createElement("INPUT");
-      formInput.setAttribute("type", "text");
-      formInput.setAttribute("value", "");
-      document.getElementById("myForm").appendChild(formInput);
-
-      var submitBtn = document.createElement("BUTTON");
-      var submitText = document.createTextNode("Submit");
-      submitBtn.appendChild(submitText);
-      document.getElementById("score-page").appendChild(submitBtn);
-}
-
-function showElem() {
-  document.getElementById("score-page").style.visibility = "visible";
-} 
-
-
-// function timeCaught() {
-// timeLeft = timeLeft;
-// localStorage.setItem('Score', timeCaught);
-// }
-
-
-*/
-
-
-//  if (timeLeft == 0 || questionIndex == questions.length) {
-//    console.log(timeLeft);
-
-
-/*     
-<h3 id="quiz-complete"> All Done !!</h3>
-<h4 id="current-score"> Your Score is :</h4>
- <form>Enter Initials : <input type="text" name="Initial"></form>
- <button id="btn-submit">Submit</button>
-*/    
-
-
-/*
-
-WHEN the game is over
-THEN I can save my initials and score
-*/
