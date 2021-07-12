@@ -156,16 +156,15 @@ function trueFalse(event) {
     
     localStorage.setItem('Score', timeCaught);
     
- questionEl.hidden = true;
- optionListEl.hidden = true;
- questionResultEl.hidden = true;
+    questionEl.hidden = true;
+    optionListEl.hidden = true;
+    questionResultEl.hidden = true;
  
  event.preventDefault();
 
-
-    scorePage();
+  scorePage();
   } 
-  
+
   if (timeLeft == '0') {
     scorePage();
   }
@@ -174,19 +173,9 @@ function trueFalse(event) {
  renderQuestion();
 }
 
-
-function timeCaught() {
- // timeLeft = timeLeft;
-  localStorage.setItem('Score', timeCaught);
-}
-
-
-//--------working Part------------------------------------------------------
-
+//--------Directing to Score Page---------------------------
 function scorePage() {
-
   window.location.href = "./assets/score.html";
-
 }
 
 
@@ -234,8 +223,6 @@ btnStart.addEventListener('click', hidePage1);
       var submitText = document.createTextNode("Submit");
       submitBtn.appendChild(submitText);
       document.getElementById("score-page").appendChild(submitBtn);
-
-      
 }
 
 function showElem() {
@@ -243,10 +230,13 @@ function showElem() {
 } 
 
 
+// function timeCaught() {
+// timeLeft = timeLeft;
+// localStorage.setItem('Score', timeCaught);
+// }
+
+
 */
-
-
-
 
 
 //  if (timeLeft == 0 || questionIndex == questions.length) {
