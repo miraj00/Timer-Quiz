@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Score</title>
+    <title>User Performance</title>
   </head>
   <body>
     <div id="starting-page">
       <h1 id="quiz-complete"> All Done !!</h1>
-      <h2 id="current-score">Your Score is :</h2>
+      <h2 id="current-score"></h2><p id="demo"></p>
+    
       <center><form>Enter Initials : <input type="text" name="Initial"></form></center>
-      <button id="btn-submit">Submit</button>
+    
+      <button id="btn-submit" onclick="window.location.href='../assets/summary.html'">Submit</button> 
+    
     </div>
     
-
     <script src="./scorejs.js"></script>
 </body>
 </html>
