@@ -102,18 +102,15 @@ function startTimer() {
 
 
     var timeInterval = setInterval(function() {
-       if (timeLeft >= 0) {
+       if (timeLeft > 0) {
          timerEl.textContent = 'Time : ' + timeLeft + ' second(s)';
          timeLeft--;
             }
           else if ( timeLeft == 0) {
-            scorePage();
-          }  
-       else {
+          scorePage();
          timerEl.textContent = '';
          clearInterval(timeInterval);
-   //    timerEl.hidden = true;
-            }
+           }
   }, 1000);
 }
 
@@ -149,20 +146,76 @@ function trueFalse(event) {
     timeLeft -= 5;
        };
  questionIndex++;
+//----------------------------------------------------------------
+ // if no more question or timeLeft = 0, go to score Page function ----
+  if (questionIndex == '10') {
+    var timeCaught;
+    timeCaught = timeLeft + 1;
+   // optionListEl.addEventListener ('click', timeCaught);
+    console.log("the score is:", timeCaught);
+    
+    localStorage.setItem('Score', timeCaught);
+    
+ questionEl.hidden = true;
+ optionListEl.hidden = true;
+ questionResultEl.hidden = true;
+ 
+ event.preventDefault();
+
+
+    scorePage();
+  } 
+  
+  if (timeLeft == '0') {
+    scorePage();
+  }
+
  console.log(questionIndex);
  renderQuestion();
 }
+
+
+function timeCaught() {
+ // timeLeft = timeLeft;
+  localStorage.setItem('Score', timeCaught);
+}
+
+
 //--------working Part------------------------------------------------------
 
 function scorePage() {
-      var h3El = document.createElementById("h3");
+
+  window.location.href = "./assets/score.html";
+
+}
+
+
+optionListEl.addEventListener('click', trueFalse);
+
+btnStart.addEventListener('click', hidePage1);
+
+
+
+
+/*
+ // hide questions and then 
+ questionEl.hidden = true;
+ optionListEl.hidden = true;
+ questionResultEl.hidden = true;
+ 
+ // show score page
+
+
+      showElem();
+      
+      var h3El = document.createElement("h3");
       h3El.setAttribute('id', 'quiz-complete');
       h3El.textContent = "All Done !!";
       h3El.setAttribute("style", "text-align:center; padding-bottom: 20px;");
       document.getElementById("score-page").appendChild(h3El);
       
 
-      var h4El = document.createElementById("h4");
+      var h4El = document.createElement("h4");
       h4El.setAttribute('id', 'current-score');
       h4El.textContent = "Your Score is : ";
       h4El.setAttribute("style", "text-align:center; padding-bottom: 20px;");
@@ -170,7 +223,7 @@ function scorePage() {
      
       var form = document.createElement("FORM");
       form.setAttribute("id", "myForm");
-      document.section.appendChild(form);
+      document.getElementById("score-page").appendChild(form);
     
       var formInput = document.createElement("INPUT");
       formInput.setAttribute("type", "text");
@@ -180,9 +233,9 @@ function scorePage() {
       var submitBtn = document.createElement("BUTTON");
       var submitText = document.createTextNode("Submit");
       submitBtn.appendChild(submitText);
-      document.section.appendChild(submitBtn);
+      document.getElementById("score-page").appendChild(submitBtn);
 
-      showElem();
+      
 }
 
 function showElem() {
@@ -190,7 +243,7 @@ function showElem() {
 } 
 
 
-
+*/
 
 
 
@@ -207,43 +260,9 @@ function showElem() {
  <button id="btn-submit">Submit</button>
 */    
 
-// upon completion of 10 questions, go to score page
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-optionListEl.addEventListener('click', trueFalse);
-
-btnStart.addEventListener('click', hidePage1);
-
-
-
-
-
-
-
-
 
 /*
-WHEN I click the start button
 
-THEN a timer starts and I am presented with a question
-
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 */
