@@ -13,7 +13,7 @@ Client requested to create Quiz with Timer on it that meets minumum requirements
 
 Reference Note : 
  * The initial code was provided by and instructor which needed to improve upon.
- * Reference Note : The multiple choice questions were taken from : http://mcqspdfs.blogspot.com/2013/08/60-top-javascript-multiple-choice.html  
+ * The multiple choice questions were taken from : http://mcqspdfs.blogspot.com/2013/08/60-top-javascript-multiple-choice.html  
 
 ###### Below is the screenshot of the outcome when ran accordingly  
 
