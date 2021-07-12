@@ -1,9 +1,5 @@
 ### Timer-Quiz
 
-## The multiple choice questions were taken from http://mcqspdfs.blogspot.com/2013/08/60-top-javascript-multiple-choice.html 
-
-## The initial code was provided by and instructor which needed to improve upon.
-
 Client requested to create Quiz with Timer on it that meets minumum requirements in order to execute for students. 
 
 * Minimum requirements are as below  : 
@@ -15,6 +11,9 @@ Client requested to create Quiz with Timer on it that meets minumum requirements
 1. On the score page, user can put initials and submit for the scores to be saved on next step
 1. On final Page user can either press Go Back button to return to start page or clear saved score.
 
+Reference Note : 
+ * The initial code was provided by and instructor which needed to improve upon.
+ * Reference Note : The multiple choice questions were taken from : http://mcqspdfs.blogspot.com/2013/08/60-top-javascript-multiple-choice.html  
 
 ###### Below is the screenshot of the outcome when ran accordingly  
 
@@ -27,3 +26,5 @@ Client requested to create Quiz with Timer on it that meets minumum requirements
 
 
 [Please click here to deploy application](https://miraj00.github.io/Timer-Quiz/)
+
+
